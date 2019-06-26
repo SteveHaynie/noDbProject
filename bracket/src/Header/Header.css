@@ -11,3 +11,10 @@
     margin: 0px;
 
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}

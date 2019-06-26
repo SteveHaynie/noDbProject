@@ -1,44 +1,134 @@
-import React from 'react';
-import './Body.css';
+import React from "react";
+import "./Body.css";
 
 class Body extends React.Component {
-
-    render() {
-        
-  return (
-    <div className="Body">
+  render() {
+    return (
+      <div className="Body">
         <div className="row1">
-            <div className="box">
-                <div className="positions">{this.props.players[0]}</div><button className="winner">Winner</button>
-                <div className="positions">{this.props.players[1]}</div><button className="winner">Winner</button>
-            </div>
-            <div className="box">
-                <div className="positions">{this.props.players[2]}</div><button className="winner">Winner</button>
-                <div className="positions">{this.props.players[3]}</div><button className="winner">Winner</button>
-            </div> <div className="box">
-                <div className="positions">{this.props.players[4]}</div><button className="winner">Winner</button>
-                <div className="positions">{this.props.players[5]}</div><button className="winner">Winner</button>
-            </div> <div className="box">
-                <div className="positions">{this.props.players[6]}</div><button className="winner">Winner</button>
-                <div className="positions">{this.props.players[7]}</div><button className="winner">Winner</button>
-            </div>
-         
-        
+          <div className="box">
+            <div className="positions">{this.props.positions.pos1}</div>
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos1, 1);
+              }}
+            >
+              Win
+            </button>{" "}
+            <div className="space" />
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos2, 2);
+              }}
+            >
+              Win
+            </button>
+            <div className="positions">{this.props.positions.pos2}</div>
+          </div>
+
+          <div className="box">
+            <div className="positions">{this.props.positions.pos3}</div>
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos3, 3);
+              }}
+            >
+              Win
+            </button>
+            <div className="space" />
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos4, 4);
+              }}
+            >
+              Win
+            </button>
+            <div className="positions">{this.props.positions.pos4}</div>
+          </div>
+
+          <div className="box">
+            <div className="positions">{this.props.positions.pos5}</div>
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos5, 5);
+              }}
+            >
+              Win
+            </button>
+            <div className="space" />
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos6, 6);
+              }}
+            >
+              Win
+            </button>
+            <div className="positions">{this.props.positions.pos6}</div>
+          </div>
+
+          <div className="box">
+            <div className="positions">{this.props.positions.pos7}</div>
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos7, 7);
+              }}
+            >
+              Win
+            </button>
+            <div className="space" />
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.win(this.props.positions.pos8, 8);
+              }}
+            >
+              Win
+            </button>
+            <div className="positions">{this.props.positions.pos8}</div>
+          </div>
         </div>
-        <div className="row2">
-                 <div className="box2">
-                <div className="positions">pos9</div><button className="winner">Winner</button>
-                <div className="positions">pos10</div><button className="winner">Winner</button>
+
+        <div className="row1">
+          <div className="box1">
+            <div className="positions">{this.props.positions.pos9}</div>
+            <button className="winner">Winner</button>
+            <div className="space1" />
+            <button className="winner">Winner</button>
+            <div className="positions">{this.props.positions.pos10}</div>
+          </div>
+          <div className="box1">
+            <div className="positions">{this.props.positions.pos11}</div>
+            <button className="winner">Winner</button>
+            <div className="space1" />
+            <button className="winner">Winner</button>
+            <div className="positions">{this.props.positions.pos12}</div>
+          </div>
+        </div>
+
+
+        <div className="row1">
+            <div className="box2">
+                <div className="positions">{this.props.positions.pos13}</div>
+                <button className="winner">Winner</button>
             </div>
             <div className="box2">
-                <div className="positions">pos11</div><button className="winner">Winner</button>
-                <div className="positions">pos12</div><button className="winner">Winner</button>
-            </div> 
+                <button className="winner">Winner</button>
+                <div className="positions">{this.props.positions.pos14}</div>
+            </div>
         </div>
-        <div className="row3">row3</div>
-        <div className="row4">row4</div>
-    </div>
-  );
-}}
+        <div className="row4"><div className="positions">{this.props.positions.pos14}</div></div>
+      </div>
+    );
+  }
+}
 
 export default Body;
+
+// onClick={() => clickFunction(1, )}

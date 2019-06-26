@@ -13,11 +13,12 @@ class App extends React.Component {
       positions: {},
       newPlayer: ""
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleWin = this.handleWin.bind(this);
   }
-
-
 
   componentDidMount() {
     axios
@@ -31,31 +32,71 @@ class App extends React.Component {
   }
 
   handleClick() {
-    
-    axios
-    .post('http://localhost:8080/addPlayer', this.state.newPlayer)
-    .then(() => axios.get('http://localhost:8080/players'))
-    .then(response => this.setState({ players: response.data }))
-    .catch(console.error);
-}
-  
+    const players = this.state.players;
+
+    if (players.length < 8) {
+      axios
+        .post("http://localhost:8080/players", {
+          newPlayer: this.state.newPlayer
+        })
+        .then(response =>
+          this.setState({
+            positions: response.data.positions,
+            players: response.data.players,
+            newPlayer: ""
+          })
+        )
+        .catch(console.error);
+    } else {
+      alert("Too many players");
+      this.setState({ newPlayer: "" });
+    }
+  }
 
   handleChange(e) {
     this.setState({ newPlayer: e.target.value });
-  
   }
+
+  handleClear() {
+    axios
+      .put("http://localhost:8080/players", { players: [] })
+      .then(response =>
+        this.setState({
+          players: response.data.players,
+          positions: response.data.positions
+        })
+      )
+      .catch(console.error);
+  }
+
+  handleWin(name, pos) {
+  
+    axios
+      .put("http://localhost:8080/players/win", { name, pos })
+      .then(response =>
+        this.setState({
+          players: response.data.players,
+          positions: response.data.positions
+        })
+      )
+      .catch(console.error);
+  }
+
   render() {
     console.log(this.state, "this is state");
     return (
       <div className="App">
         <Header
-        newPlayer={this.handleChange}
-        addPlayer={this.handleClick}
-         />
+          newPlayer={this.handleChange}
+          addPlayer={this.handleClick}
+          clear={this.handleClear}
+          value={this.state.newPlayer}
+        />
         <Body
           players={this.state.players}
+          positions={this.state.positions}
           submit={this.state.handleClick}
-          
+          win={this.handleWin}
         />
       </div>
     );
