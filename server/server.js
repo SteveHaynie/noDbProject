@@ -3,16 +3,15 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const players = ["test1", "test2", "test3"];
+const players = [];
 let positions = {
-  pos1: players[0],
-  pos2: players[1],
-  pos3: players[2],
-  pos4: players[3],
-  pos5: players[4],
-  pos6: players[5],
-  pos7: players[6],
-  pos8: players[7],
+  pos1: "",
+  pos2: "",
+  pos3: "",
+  pos4: "",
+  pos6: "",
+  pos7: "",
+  pos8: "",
   pos9: "",
   pos10: "",
   pos11: "",
@@ -36,6 +35,7 @@ app.get("/players", (req, res) => {
 app.post("/players", (req, res) => {
   players.push(req.body.newPlayer);
   positions[`pos${players.length}`] = req.body.newPlayer;
+  
 
   res.send({ positions, players });
 });
@@ -58,6 +58,18 @@ app.put('/players/win', (req, res) => {
         positions.pos12 = req.body.name
         res.send({players, positions})
     }
+    else if(req.body.pos === 9 || req.body.pos === 10){
+      positions.pos13 = req.body.name
+      res.send({players, positions})
+  }
+  else if(req.body.pos === 11 || req.body.pos === 12){
+    positions.pos14 = req.body.name
+    res.send({players, positions})
+}
+else if(req.body.pos === 13 || req.body.pos === 14){
+  positions.pos15 = req.body.name
+  res.send({players, positions})
+}
 
 })
 

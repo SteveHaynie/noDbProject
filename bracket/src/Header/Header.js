@@ -19,10 +19,10 @@ handleSubmit =  (event)  =>{
        <div className="buttons">
        <form onSubmit={this.handleSubmit}>
         <input placeholder="name" value={this.props.value} onChange={this.props.newPlayer} ></input>
-        <input type='submit' value='addPlayer'/>
+        <input className="headButtons" type='submit' value='Add Player'/>
         {/* <button onClick={this.props.addPlayer}>Add Player</button> */}
          </form>
-        <button onClick={this.props.clear}>Clear All Players</button>
+        <button className="headButtons" onClick={this.props.clear}>Clear All Players</button>
          </div>
     </div>
   );

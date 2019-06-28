@@ -2,9 +2,22 @@ import React from "react";
 import "./Body.css";
 
 class Body extends React.Component {
+constructor() {
+  super();
+
+  this.state= {
+    toggleWinner: false
+
+  }
+
+}
+
+
   render() {
     return (
+      
       <div className="Body">
+       {this.state.toggleWinner?this.props.winner():null}
         <div className="row1">
           <div className="box">
             <div className="positions">{this.props.positions.pos1}</div>
@@ -15,7 +28,7 @@ class Body extends React.Component {
               }}
             >
               Win
-            </button>{" "}
+            </button>
             <div className="space" />
             <button
               className="winner"
@@ -98,16 +111,24 @@ class Body extends React.Component {
         <div className="row1">
           <div className="box1">
             <div className="positions">{this.props.positions.pos9}</div>
-            <button className="winner">Winner</button>
+            <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos9, 9);
+              }}>Win</button>
             <div className="space1" />
-            <button className="winner">Winner</button>
+            <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos10, 10);
+              }}>Win</button>
             <div className="positions">{this.props.positions.pos10}</div>
           </div>
           <div className="box1">
             <div className="positions">{this.props.positions.pos11}</div>
-            <button className="winner">Winner</button>
+            <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos11, 11);
+              }}>Win</button>
             <div className="space1" />
-            <button className="winner">Winner</button>
+            <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos12, 12);
+              }}>Win</button>
             <div className="positions">{this.props.positions.pos12}</div>
           </div>
         </div>
@@ -116,14 +137,23 @@ class Body extends React.Component {
         <div className="row1">
             <div className="box2">
                 <div className="positions">{this.props.positions.pos13}</div>
-                <button className="winner">Winner</button>
+                <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos13, 13);
+                this.setState({toggleWinner: true})
+              }}>Win</button>
             </div>
             <div className="box2">
-                <button className="winner">Winner</button>
+                <button className="winner" onClick={() => {
+                this.props.win(this.props.positions.pos14, 14);
+               this.setState({toggleWinner: true})
+               
+
+
+              }}>Win</button>
                 <div className="positions">{this.props.positions.pos14}</div>
             </div>
         </div>
-        <div className="row4"><div className="positions">{this.props.positions.pos14}</div></div>
+        <div className="row4"><div className="positions">{this.props.positions.pos15}</div></div>
       </div>
     );
   }

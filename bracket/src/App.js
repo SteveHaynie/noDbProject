@@ -4,6 +4,11 @@ import Header from "./Header/Header.js";
 import Body from "./Body/Body.js";
 import axios from "axios";
 
+
+
+
+
+
 class App extends React.Component {
   constructor() {
     super();
@@ -18,6 +23,7 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleWin = this.handleWin.bind(this);
+    this.handleWinner = this.handleWinner.bind(this);
   }
 
   componentDidMount() {
@@ -82,10 +88,21 @@ class App extends React.Component {
       .catch(console.error);
   }
 
+  handleWinner () {
+    
+    return <div class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
+  
+
+  }
+
   render() {
-    console.log(this.state, "this is state");
+    
     return (
       <div className="App">
+      
         <Header
           newPlayer={this.handleChange}
           addPlayer={this.handleClick}
@@ -97,6 +114,7 @@ class App extends React.Component {
           positions={this.state.positions}
           submit={this.state.handleClick}
           win={this.handleWin}
+          winner={this.handleWinner}
         />
       </div>
     );
