@@ -16,7 +16,8 @@ class App extends React.Component {
     this.state = {
       players: [],
       positions: {},
-      newPlayer: ""
+      newPlayer: "",
+      toggleWinner: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -69,7 +70,8 @@ class App extends React.Component {
       .then(response =>
         this.setState({
           players: response.data.players,
-          positions: response.data.positions
+          positions: response.data.positions,
+          toggleWinner: false
         })
       )
       .catch(console.error);
@@ -86,6 +88,7 @@ class App extends React.Component {
         })
       )
       .catch(console.error);
+      this.setState({toggleWinner: true})
   }
 
   handleWinner () {
@@ -108,6 +111,7 @@ class App extends React.Component {
           addPlayer={this.handleClick}
           clear={this.handleClear}
           value={this.state.newPlayer}
+          toggleWinner={this.state.toggleWinner}
         />
         <Body
           players={this.state.players}
@@ -115,6 +119,7 @@ class App extends React.Component {
           submit={this.state.handleClick}
           win={this.handleWin}
           winner={this.handleWinner}
+          toggleWinner={this.state.toggleWinner}
         />
       </div>
     );

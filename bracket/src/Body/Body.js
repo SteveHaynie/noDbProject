@@ -2,22 +2,13 @@ import React from "react";
 import "./Body.css";
 
 class Body extends React.Component {
-constructor() {
-  super();
-
-  this.state= {
-    toggleWinner: false
-
-  }
-
-}
 
 
   render() {
     return (
       
       <div className="Body">
-       {this.state.toggleWinner?this.props.winner():null}
+       {this.props.toggleWinner?this.props.winner():null}
         <div className="row1">
           <div className="box">
             <div className="positions">{this.props.positions.pos1}</div>
@@ -139,13 +130,13 @@ constructor() {
                 <div className="positions">{this.props.positions.pos13}</div>
                 <button className="winner" onClick={() => {
                 this.props.win(this.props.positions.pos13, 13);
-                this.setState({toggleWinner: true})
+                
               }}>Win</button>
             </div>
             <div className="box2">
                 <button className="winner" onClick={() => {
                 this.props.win(this.props.positions.pos14, 14);
-               this.setState({toggleWinner: true})
+              
                
 
 
