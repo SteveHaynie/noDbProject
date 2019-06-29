@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./reset.css";
 import Header from "./Header/Header.js";
 import Body from "./Body/Body.js";
 import axios from "axios";
@@ -25,9 +26,11 @@ class App extends React.Component {
     this.handleClear = this.handleClear.bind(this);
     this.handleWin = this.handleWin.bind(this);
     this.handleWinner = this.handleWinner.bind(this);
+    this.handleWinFinal = this.handleWinFinal.bind(this);
   }
 
   componentDidMount() {
+    document.title ="Bracket Generator";
     axios
       .get("http://localhost:8080/players")
       .then(response => this.setState({ players: response.data }))
@@ -88,6 +91,19 @@ class App extends React.Component {
         })
       )
       .catch(console.error);
+     
+  }
+  handleWinFinal(name, pos) {
+  
+    axios
+      .put("http://localhost:8080/players/win", { name, pos })
+      .then(response =>
+        this.setState({
+          players: response.data.players,
+          positions: response.data.positions
+        })
+      )
+      .catch(console.error);
       this.setState({toggleWinner: true})
   }
 
@@ -118,6 +134,7 @@ class App extends React.Component {
           positions={this.state.positions}
           submit={this.state.handleClick}
           win={this.handleWin}
+          handleWinFinal={this.handleWinFinal}
           winner={this.handleWinner}
           toggleWinner={this.state.toggleWinner}
         />

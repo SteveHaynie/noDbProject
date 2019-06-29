@@ -2,16 +2,13 @@ import React from "react";
 import "./Body.css";
 
 class Body extends React.Component {
-
-
   render() {
     return (
-      
       <div className="Body">
-       {this.props.toggleWinner?this.props.winner():null}
+        {this.props.toggleWinner ? this.props.winner() : null}
         <div className="row1">
           <div className="box">
-            <div className="positions">{this.props.positions.pos1}</div>
+            <p className="positions">{this.props.positions.pos1}</p>
             <button
               className="winner"
               onClick={() => {
@@ -29,11 +26,11 @@ class Body extends React.Component {
             >
               Win
             </button>
-            <div className="positions">{this.props.positions.pos2}</div>
+            <p className="positions">{this.props.positions.pos2}</p>
           </div>
 
           <div className="box">
-            <div className="positions">{this.props.positions.pos3}</div>
+            <p className="positions">{this.props.positions.pos3}</p>
             <button
               className="winner"
               onClick={() => {
@@ -51,11 +48,11 @@ class Body extends React.Component {
             >
               Win
             </button>
-            <div className="positions">{this.props.positions.pos4}</div>
+            <p className="positions">{this.props.positions.pos4}</p>
           </div>
 
           <div className="box">
-            <div className="positions">{this.props.positions.pos5}</div>
+            <p className="positions">{this.props.positions.pos5}</p>
             <button
               className="winner"
               onClick={() => {
@@ -73,11 +70,11 @@ class Body extends React.Component {
             >
               Win
             </button>
-            <div className="positions">{this.props.positions.pos6}</div>
+            <p className="positions">{this.props.positions.pos6}</p>
           </div>
 
           <div className="box">
-            <div className="positions">{this.props.positions.pos7}</div>
+            <p className="positions">{this.props.positions.pos7}</p>
             <button
               className="winner"
               onClick={() => {
@@ -95,61 +92,86 @@ class Body extends React.Component {
             >
               Win
             </button>
-            <div className="positions">{this.props.positions.pos8}</div>
+            <p className="positions">{this.props.positions.pos8}</p>
           </div>
         </div>
 
         <div className="row1">
           <div className="box1">
-            <div className="positions">{this.props.positions.pos9}</div>
-            <button className="winner" onClick={() => {
+            <p className="positions">{this.props.positions.pos9}</p>
+            <button
+              className="winner"
+              onClick={() => {
                 this.props.win(this.props.positions.pos9, 9);
-              }}>Win</button>
+              }}
+            >
+              Win
+            </button>
             <div className="space1" />
-            <button className="winner" onClick={() => {
+            <button
+              className="winner"
+              onClick={() => {
                 this.props.win(this.props.positions.pos10, 10);
-              }}>Win</button>
-            <div className="positions">{this.props.positions.pos10}</div>
+              }}
+            >
+              Win
+            </button>
+            <p className="positions">{this.props.positions.pos10}</p>
           </div>
           <div className="box1">
-            <div className="positions">{this.props.positions.pos11}</div>
-            <button className="winner" onClick={() => {
+            <p className="positions">{this.props.positions.pos11}</p>
+            <button
+              className="winner"
+              onClick={() => {
                 this.props.win(this.props.positions.pos11, 11);
-              }}>Win</button>
+              }}
+            >
+              Win
+            </button>
             <div className="space1" />
-            <button className="winner" onClick={() => {
+            <button
+              className="winner"
+              onClick={() => {
                 this.props.win(this.props.positions.pos12, 12);
-              }}>Win</button>
-            <div className="positions">{this.props.positions.pos12}</div>
+              }}
+            >
+              Win
+            </button>
+            <p className="positions">{this.props.positions.pos12}</p>
           </div>
         </div>
 
-
         <div className="row1">
-            <div className="box2">
-                <div className="positions">{this.props.positions.pos13}</div>
-                <button className="winner" onClick={() => {
-                this.props.win(this.props.positions.pos13, 13);
-                
-              }}>Win</button>
-            </div>
-            <div className="box2">
-                <button className="winner" onClick={() => {
-                this.props.win(this.props.positions.pos14, 14);
-              
-               
-
-
-              }}>Win</button>
-                <div className="positions">{this.props.positions.pos14}</div>
-            </div>
+          <div className="box2">
+            <p className="positions">{this.props.positions.pos13}</p>
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.handleWinFinal(this.props.positions.pos13, 13);
+              }}
+            >
+              Win
+            </button>
+          </div>
+          <div className="box2">
+            <button
+              className="winner"
+              onClick={() => {
+                this.props.handleWinFinal(this.props.positions.pos14, 14);
+              }}
+            >
+              Win
+            </button>
+            <p className="positions">{this.props.positions.pos14}</p>
+          </div>
         </div>
-        <div className="row4"><div className="positions">{this.props.positions.pos15}</div></div>
+        <div className="row4">
+        <div className="box3">
+          <p className="positions">{this.props.positions.pos15}</p>
+        </div></div>
       </div>
     );
   }
 }
 
 export default Body;
-
-// onClick={() => clickFunction(1, )}

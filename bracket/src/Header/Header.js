@@ -15,7 +15,7 @@ handleSubmit =  (event)  =>{
   return (
     <div className="Header">
         <h1 className="title">Bracket Gen v 1.0</h1>
-        <div>Please Input Player Name</div>
+        <p>Please Input Player Name</p>
        <div className="buttons">
        <form onSubmit={this.handleSubmit}>
         <input placeholder="name" value={this.props.value} onChange={this.props.newPlayer} ></input>

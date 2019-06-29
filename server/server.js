@@ -5,20 +5,21 @@ const bodyParser = require("body-parser");
 
 const players = [];
 let positions = {
-  pos1: "",
-  pos2: "",
-  pos3: "",
-  pos4: "",
-  pos6: "",
-  pos7: "",
-  pos8: "",
-  pos9: "",
-  pos10: "",
-  pos11: "",
-  pos12: "",
-  pos13: "",
-  pos14: "",
-  pos15: ""
+  pos1: "Round 1",
+  pos2: "Round 1",
+  pos3: "Round 1",
+  pos4: "Round 1",
+  pos5: "Round 1",
+  pos6: "Round 1",
+  pos7: "Round 1",
+  pos8: "Round 1",
+  pos9: "Round 2",
+  pos10: "Round 2",
+  pos11: "Round 2",
+  pos12: "Round 2",
+  pos13: "Round 3",
+  pos14: "Round 3",
+  pos15: "Champion!"
 };
 
 app.use(bodyParser.json());
@@ -76,21 +77,21 @@ else if(req.body.pos === 13 || req.body.pos === 14){
 app.put("/players", (req, res) => {
   const length = players.length;
   positions = {
-    pos1: '',
-    pos2: '',
-    pos3: '',
-    pos4: '',
-    pos5: '',
-    pos6: '',
-    pos7: '',
-    pos8: '',
-    pos9: "",
-    pos10: "",
-    pos11: "",
-    pos12: "",
-    pos13: "",
-    pos14: "",
-    pos15: ""
+    pos1: "Round 1",
+  pos2: "Round 1",
+  pos3: "Round 1",
+  pos4: "Round 1",
+  pos5: "Round 1",
+  pos6: "Round 1",
+  pos7: "Round 1",
+  pos8: "Round 1",
+  pos9: "Round 2",
+  pos10: "Round 2",
+  pos11: "Round 2",
+  pos12: "Round 2",
+  pos13: "Round 3",
+  pos14: "Round 3",
+  pos15: "Champion!"
   };
   players.splice(0, length);
   res.send({players, positions});
